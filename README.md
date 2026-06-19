@@ -1,8 +1,13 @@
 # rest-api-pytest-framework
 
+![python](https://img.shields.io/badge/python-3.12-3776AB?logo=python&logoColor=white) ![pytest](https://img.shields.io/badge/pytest-8.x-0A9EDC?logo=pytest&logoColor=white) ![allure](https://img.shields.io/badge/report-allure-FF6C37) ![license](https://img.shields.io/badge/license-MIT-green)
+
 Test automation framework for REST APIs. I use this as a baseline when starting a new project - clone, swap the base URL and clients, done.
 
 Ran against [reqres.in](https://reqres.in) as a demo target since it's public, stable, and has realistic CRUD + auth endpoints.
+
+
+![architecture diagram](docs/img/rest.svg)
 
 ## stack
 

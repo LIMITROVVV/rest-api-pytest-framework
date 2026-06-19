@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="430" viewBox="0 0 1160 430" font-family="-apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif">
+  <rect width="1160" height="430" fill="#FAFBFC"/>
+  <text x="40" y="48" font-size="26" font-weight="700" fill="#1B1F24">rest-api-pytest-framework - layers</text>
+  <text x="40" y="76" font-size="15" fill="#57606A">tests never touch http directly. they call service objects, which call one shared client. swap the base url and you point the whole suite somewhere else.</text>
+  <rect x="40" y="118" width="700" height="64" rx="9" fill="#EAF3EC" stroke="#AECDB4" stroke-width="1.5"/>
+  <text x="64" y="146" font-size="16" font-weight="700" fill="#1A7F37">tests/</text>
+  <text x="64" y="168" font-size="13" fill="#36603F">test_users.py, test_auth.py - assertions only, grouped by allure suite</text>
+  <rect x="40" y="198" width="700" height="64" rx="9" fill="#FFFFFF" stroke="#D0D7DE" stroke-width="1.5"/>
+  <text x="64" y="226" font-size="16" font-weight="700" fill="#1B1F24">clients/ (service objects)</text>
+  <text x="64" y="248" font-size="13" fill="#57606A">UsersClient, AuthClient - one file per API resource, readable method names</text>
+  <rect x="40" y="278" width="700" height="64" rx="9" fill="#FFFFFF" stroke="#D0D7DE" stroke-width="1.5"/>
+  <text x="64" y="306" font-size="16" font-weight="700" fill="#1B1F24">BaseClient</text>
+  <text x="64" y="328" font-size="13" fill="#57606A">get/post/put/delete wrapper, logging, base url joining</text>
+  <rect x="40" y="358" width="700" height="50" rx="9" fill="#1B1F24"/>
+  <text x="390" y="389" text-anchor="middle" font-size="15" font-weight="600" fill="#FFFFFF">target API (reqres.in in the demo, swap via BASE_URL)</text>
+  <g stroke="#8C959F" stroke-width="2" fill="none" marker-end="url(#ah3)">
+    <line x1="390" y1="182" x2="390" y2="196"/>
+    <line x1="390" y1="262" x2="390" y2="276"/>
+    <line x1="390" y1="342" x2="390" y2="356"/>
+  </g>
+  <rect x="780" y="118" width="340" height="100" rx="9" fill="#EAF1FB" stroke="#9DB8E5" stroke-width="1.4"/>
+  <text x="804" y="146" font-size="15" font-weight="700" fill="#0A53C9">conftest.py</text>
+  <text x="804" y="170" font-size="12.8" fill="#244b8f">session http client + api key header</text>
+  <text x="804" y="190" font-size="12.8" fill="#244b8f">base_url from env</text>
+  <text x="804" y="210" font-size="12.8" fill="#244b8f">attaches response to allure on failure</text>
+  <rect x="780" y="234" width="340" height="90" rx="9" fill="#F3EEFB" stroke="#C4ACE9" stroke-width="1.4"/>
+  <text x="804" y="262" font-size="15" font-weight="700" fill="#6F42C1">schemas/</text>
+  <text x="804" y="286" font-size="12.8" fill="#50337f">jsonschema validation of responses</text>
+  <text x="804" y="306" font-size="12.8" fill="#50337f">user.json, user_list.json</text>
+  <rect x="780" y="340" width="340" height="68" rx="9" fill="#FBF1E6" stroke="#E5C089" stroke-width="1.4"/>
+  <text x="804" y="368" font-size="15" font-weight="700" fill="#9A6700">CI (GitHub Actions)</text>
+  <text x="804" y="392" font-size="12.8" fill="#7d5a14">pytest + allure results on every push</text>
+  <defs>
+    <marker id="ah3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M1 1 L9 5 L1 9" fill="none" stroke="#8C959F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+</svg>
