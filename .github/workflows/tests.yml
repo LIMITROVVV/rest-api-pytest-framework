@@ -1,0 +1,41 @@
+name: tests
+
+on:
+  push:
+    branches: ["main", "dev"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: set up python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: install deps
+        run: pip install -r requirements.txt
+
+      - name: run tests
+        env:
+          BASE_URL: https://reqres.in
+          API_KEY: reqres-free-v1
+        run: |
+          pytest tests/ \
+            --alluredir=allure-results \
+            -m "not slow" \
+            --tb=short
+
+      - name: upload allure results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results
+          path: allure-results/
+          retention-days: 7
